@@ -57,10 +57,11 @@ class Complexity(models.Model):
         verbose_name_plural = "혼잡도 정보 관리"
         verbose_name = "혼잡도 정보"
 
+
 class Time(models.Model):
 
     complex_id = models.ForeignKey(Complexity, on_delete=models.CASCADE, verbose_name="혼잡도 정보")
-    time = models.TimeField(null=False, blank=True,verbose_name="시간")
+    time = models.TimeField(null=False, blank=True, verbose_name="시간")
     complexity = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="혼잡도")
 
     class Meta:
