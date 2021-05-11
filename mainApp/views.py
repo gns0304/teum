@@ -7,24 +7,25 @@ from allauth.socialaccount.models import SocialAccount
 
 # for allauth
 
-def getUsername(request):
+
+def get_username(request):
 
     user = get_object_or_404(User, username=request.user)
-    userName = user.get_full_name()
-    socialUser = get_object_or_404(SocialAccount, user=request.user)
+    user_name = user.get_full_name()
+    social_user = get_object_or_404(SocialAccount, user=request.user)
 
-    if userName == "" or userName != socialUser.extra_data["name"]:
+    if user_name == "" or user_name != social_user.extra_data["name"]:
 
-        user.last_name = socialUser.extra_data["name"][:1]
-        user.first_name = socialUser.extra_data["name"][1:]
+        user.last_name = social_user.extra_data["name"][:1]
+        user.first_name = social_user.extra_data["name"][1:]
         user.save()
 
     return user.last_name + user.first_name
 
 # Create your views here.
 
+
 def index(request):
 
-    print(getUsername(request))
     return render(request, 'index.html')
 
