@@ -29,3 +29,49 @@ def index(request):
 
     return render(request, 'index.html')
 
+
+def dashboard(request):
+    pass
+
+
+def menu(request):
+    pass
+
+
+def detail(request):
+    pass
+
+
+def favorite_add(request, station_id):
+    pass
+
+
+def favorite_remove(request, station_id):
+    pass
+
+
+def search_shortest(request):
+    pass
+
+
+def search_door(request):
+    pass
+
+
+def search_complexity(request):
+    pass
+
+
+def detail_shortest(request):
+    pass
+
+
+def detail_door(request):
+    pass
+
+
+def detail_complexity(request):
+    pass
+
+
+
