@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+
+#title {
+    position: absolute;
+    bottom: 60%;
+    padding-top : 10%;
+    height: 100px;
+    padding: 10% 10% 0 10%;
+    width:80%;
+  }
+
+#title h2{
+    color : white;
+    line-height: 10pt;
+    font-size: 16pt;
+    display: inline;
+}
+
+ #title h3{
+    color : white;
+    line-height: 10pt;
+    font-size: 16pt;
+
+}
+
+#img_box {
+    width: 50px;
+    margin-left : 5px;
+    margin-bottom: 15px;
+}
+
+ #title h4{
+    color : white;
+    font-size: 14pt;
+    text-align: center;
+     text-decoration: underline;
+
+}
+
+
+#panel{
+    height: 30%;
+    padding-top : 5%;
+}
+
+
+
+.l_btn{
+
+    margin-bottom: 25px;
+
+}
+
+
+
+
+@keyframes slideInFromLeft {
+ from {
+     height: 0%;
+ }
+    to {
+        height: 30%;
+    }
+}
+
+
+
+#title img{
+    width: 200px;
+
+}
+
+#title .box{
+    width: fit-content;
+    margin: 0 auto;
+}

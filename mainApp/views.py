@@ -22,12 +22,20 @@ def get_username(request):
 
     return user.last_name + user.first_name
 
+
+def logout(request):
+    auth.logout(request)
+    return redirect('index')
+
+
 # Create your views here.
 
 
 def index(request):
-
-    return render(request, 'index.html')
+    if request.user.is_authenticated:
+        return redirect("dashboard")
+    else:
+        return render(request, 'index.html')
 
 
 def dashboard(request):
@@ -51,15 +59,15 @@ def favorite_remove(request, station_id):
 
 
 def search_shortest(request):
-    pass
+    return render(request, "search/shortestDistance.html")
 
 
 def search_door(request):
-    pass
+    return render(request, "search/doorDistance.html")
 
 
 def search_complexity(request):
-    pass
+    return render(request, "search/complexity.html")
 
 
 def detail_shortest(request):

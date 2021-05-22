@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{%  block template %}
+    {% load static %}
+{% endblock %}
+
+{% block title %}
+    메뉴 - 틈
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_menu.css' %}">
+{% endblock %}
+
+{% block body %}
+
+    <div id ="container">
+        <div id = "title" >
+  <div class="box">
+                <img src="{% static 'img/logo.png' %}">
+            </div>
+            <h4><a href="{% url "dashboard" %}">뒤로가기</a></h4>
+
+
+        </div>
+
+        <div id = "panel">
+
+            <div class = "l_btn btn_blue">
+                <a class="btn_a" href="{% url "search_shortest" %}">
+                    최단이격출입문 조회
+                </a>
+            </div>
+
+                        <div class = "l_btn btn_blue">
+                <a class="btn_a" href="{% url "search_door" %}">
+                    승차위치이격도 조회
+                </a>
+            </div>
+
+                        <div class = "l_btn btn_blue">
+                <a class="btn_a" href="{% url "search_complexity" %}">
+                    역별혼잡도 조회
+                </a>
+            </div>
+
+    </div>
+    </div>
+
+{% endblock %}

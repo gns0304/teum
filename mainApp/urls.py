@@ -4,6 +4,7 @@ from mainApp import views
 urlpatterns = [
 
     path('', views.index, name="index"),
+    path('logout', views.logout, name="logout"),
 
     # 대시보드 관련
 
@@ -18,15 +19,15 @@ urlpatterns = [
 
     # 검색 관련
 
-    path('search/shortest', views.search_shortest, name="search_shortest"),
-    path('search/door', views.search_door, name="search_door"),
-    path('search/complexity', views.search_complexity, name="search_complexity"),
+    path('detail/shortest', views.search_shortest, name="search_shortest"),
+    path('detail/door', views.search_door, name="search_door"),
+    path('detail/complexity', views.search_complexity, name="search_complexity"),
 
-    # 결과 화면
-
-    path('detail/shortest', views.detail_shortest, name="detail_shortest"),
-    path('detail/door', views.detail_door, name="detail_door"),
-    path('detail/complexity', views.detail_complexity, name="detail_complexity"),
+    # 결과 화면 (렌더 논의에 따라 사용되지 않을 수 있음)
+    #
+    # path('detail/shortest', views.detail_shortest, name="detail_shortest"),
+    # path('detail/door', views.detail_door, name="detail_door"),
+    # path('detail/complexity', views.detail_complexity, name="detail_complexity"),
 
 
 ]

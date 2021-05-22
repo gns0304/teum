@@ -1,10 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+{% extends 'base.html' %}
+
+{%  block template %}
+    {% load static %}
+{% endblock %}
+
+{% block title %}
+    최단이격출입문 조회 - 틈
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_search.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
+{% endblock %}
+
+{% block body %}
+
+    <div id ="container">
+
+        <div id = "title" style="float: left" >
+            <div id = "title-left">
+                <h3>최단이격출입문 조회</h3>
+            </div>
+          <div id = "title-close">
+              <a href="{% url "menu" %}">×</a>
+          </div>
+
+        </div>
+
+        <div id="panel">
+            <div id = "list">
+
+                   <form id="createTarget" action="" method="post">
+
+                    {% csrf_token %}
+
+
+                        <label for = "line" class="label">호선 선택</label>
+                        <select name="line" id="line" class="textbox" required>
+                            <option value="1">1호선</option>
+                        </select>
+
+                       <label for = "station" class="label">역명 선택</label>
+                       <select name="station" id="station" class="textbox" required>
+                           <option value="주안역">주안역</option>
+                       </select>
+
+                       <label for = "way" class="label">상하행 선택</label>
+                       <select name="way" id="way" class="textbox" required>
+                           <option value="1">상행</option>
+                       </select>
+
+
+                            <input type="submit" class="l_btn btn_blue" id="submit" value="최단이격출입문 조회">
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
