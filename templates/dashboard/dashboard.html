@@ -1,10 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{%  block template %}
+    {% load static %}
+{% endblock %}
+
+{% block title %}
+    대시보드 - 틈
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_dashboard.css' %}">
+{% endblock %}
+
+{% block body %}
+
+    <div id ="container">
+        <div id = "title" >
+
+            <div id = "img_box">
+            <img src="{% static 'img/logo_crop.png' %}" width="50px">
+            </div>
+
+            <h2>한지훈님</h2>
+            <h4><a>로그아웃</a></h4>
+
+
+
+
+
+        </div>
+
+        <div id = "panel">
+
+            <div class = "recent">
+                <div class="panel-title">
+                    <div class="panel-title-text blue">
+                        <h1>즐겨 찾는 역</h1>
+                    </div>
+                    <div id="see-all-btn">
+                        <a href="{% url "detail" %}" class="blue">더보기</a>
+                    </div>
+                </div>
+                <div class = "panel-object">
+                    <div class = "small_box_container">
+                        <span class = "station_title">신도림역</span>
+                        <span class = "line_title">2호선</span>
+
+                    </div>
+
+
+                <div class="small_box_container">
+                    <div class = "small_box">
+                        <p class = "box-title">최단이격출입문</p>
+                        <p class = "box-body">4-2</p>
+                    </div>
+                       <div class = "small_box">
+                        <p class = "box-title">역별혼잡도</p>
+                        <p class="box-body">원활</p>
+                    </div>
+                </div>
+
+
+
+
+                </div>
+            </div>
+
+
+            <div class = "l_btn btn_blue">
+                <a class="btn_a" href="{% url "menu" %}">
+                    메뉴 열기
+                </a>
+            </div>
+
+    </div>
+
+{% endblock %}

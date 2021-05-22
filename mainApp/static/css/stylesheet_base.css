@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+
+
+html, body{
+    margin : 0px;
+    padding: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    width: 100%;
+    height: 100%;
+}
+
+#container {
+    position: relative;
+    top:0;
+    width: 100%;
+    height : 100%;
+    margin: 0 auto;
+    max-width: 480px;
+    background: -moz-linear-gradient(180deg, rgba(20,30,48,1) 0%, rgba(36,59,85,1) 60%);
+    background: -webkit-linear-gradient(180deg, rgba(20,30,48,1) 0%, rgba(36,59,85,1) 60%);
+    background: linear-gradient(180deg, rgba(20,30,48,1) 0%, rgba(36,59,85,1) 60%);
+}
+
+#panel{
+    background-color: white;
+    position: absolute;
+    width: inherit;
+    bottom: 0;
+
+    animation-duration: 0.3s;
+    animation-name: slideInFromLeft;
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-name: slideInFromLeft;
+    -moz-animation-duration: 0.3s;
+    -moz-animation-name:slideInFromLeft;
+
+    -webkit-border-top-right-radius: 35px;
+    -webkit-border-top-left-radius: 35px;
+    -webkit-box-shadow: 0px -5px 10px -5px rgba(56, 56, 56, 0.4);
+    -moz-box-shadow: 0px -5px 10px -5px rgba(56, 56, 56, 0.4);
+    box-shadow: 0px -5px 10px -5px rgba(56, 56, 56, 0.4);
+}
+
+.blue {
+
+    color: #1A293E;
+
+}
+
+
+.s_btn{
+
+    width : 65px;
+    height: 26px;
+    border-radius : 7px;
+    font-weight: bold;
+    text-align : center;
+    padding-top : 4px;
+    font-size: 11pt;
+
+}
+
+.l_btn{
+    padding-top:10px;
+    width : 85%;
+    height: 40px;
+    border-radius : 7px;
+    text-align : center;
+    font-size: 14pt;
+    text-decoration: none;
+    margin : 20px auto 0 auto;
+    border: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.btn_blue {
+    background-color : #1A293E;
+    color : #fff;
+}
+
+
+.btn_a a:link, a:visited, a:active{
+    color : white;
+    text-decoration: none;
+}
+
+.btn_a {
+    color : white;
+    text-decoration: none;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+
+#title{
+    animation: fadein 1s;
+    -moz-animation: fadein 1s; /* Firefox */
+    -webkit-animation: fadein 1s; /* Safari and Chrome */
+}
+
+#title a:link, a:visited, a:active{
+    text-decoration: none;
+}
+
+#title a {
+
+    text-decoration: none;
+}
+
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}

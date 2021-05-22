@@ -31,15 +31,15 @@ def index(request):
 
 
 def dashboard(request):
-    pass
+    return render(request, "dashboard/dashboard.html")
 
 
 def menu(request):
-    pass
+    return render(request, "dashboard/menu.html")
 
 
 def detail(request):
-    pass
+    return render(request, "dashboard/detail.html")
 
 
 def favorite_add(request, station_id):

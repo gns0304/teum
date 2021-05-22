@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+
+#title {
+    position: absolute;
+    bottom: 60%;
+    padding-top : 10%;
+    height: 100px;
+    padding: 10% 10% 0 10%;
+    width:80%;
+  }
+
+#title h2{
+    color : white;
+    line-height: 10pt;
+    font-size: 16pt;
+    display: inline;
+}
+
+ #title h3{
+    color : white;
+    line-height: 10pt;
+    font-size: 16pt;
+
+}
+
+#img_box {
+    width: 50px;
+    margin-left : 5px;
+    margin-bottom: 15px;
+}
+
+ #title h4{
+    color : white;
+    font-size: 12pt;
+     float: right;
+     text-decoration: underline;
+     margin : 0;
+
+}
+
+
+#panel{
+    height: 50%;
+    padding-top : 5%;
+}
+
+
+.panel-title {
+width : 100%;
+height: 40px;
+font-size : 10pt;
+}
+
+.panel-title-text{
+    font-size: 0.9em;
+    margin-top : -6px;
+    float : left;
+    font-weight: bold;
+}
+
+.panel-object{
+    width:100%;
+    margin-top:60px;
+    display: block;
+}
+
+#see-all-btn {
+
+    font-size: 1.1em;
+    text-decoration: underline;
+    float : right;
+    font-weight: bold;
+    margin-top: 22px;
+}
+
+
+.recent{
+    margin : 5% 10% 5% 10%;
+    width : 80%;
+}
+
+.l_btn{
+
+
+
+}
+
+#panel .panel-object h2 {
+    font-weight:500;
+    margin-top:10px;
+    margin-bottom : -10px;
+    color : black;
+}
+
+
+
+
+@keyframes slideInFromLeft {
+ from {
+     height: 0%;
+ }
+    to {
+        height: 50%;
+    }
+}
+
+.small_box_container{
+
+
+   display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.station_title{
+
+            font-size: 22pt;
+    font-weight: bold;
+
+}
+
+.line_title{
+    font-size: 14pt;
+    font-weight: bold;
+
+}
+
+.small_box{
+
+    display: inline-block;
+    float: left;
+    width: 50%;
+
+}
+
+.box-title{
+
+    font-size: 14pt;
+    font-weight: bold;
+    margin-bottom: 0;
+
+}
+
+.box-body {
+    margin-top: 5px;
+        font-size: 22pt;
+    font-weight: bold;
+}
+
+#see-all-btn a:visited, a:active {
+    color: #1A293E;
+}

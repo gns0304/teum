@@ -1,10 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{%  block template %}
+    {% load socialaccount %}
+    {% providers_media_js %}
+    {% load static %}
+{% endblock %}
+
+{% block title %}
+    틈
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_index.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block body %}
+
+    <div id ="container">
+        <div id = "title" >
+            <div class="box">
+                <img src="{% static 'img/logo.png' %}">
+            </div>
+            <h3>오늘도 안전한 하루 되세요</h3>
+        </div>
+
+        <div id = "panel">
+            <div id = "login">
+
+                <div class = "l_btn btn_blue">
+
+                        <a class="btn_a" href="{% provider_login_url 'naver'%}">
+                            네이버 아이디로 로그인
+                        </a>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,10 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{%  block template %}
+    {% load static %}
+{% endblock %}
+
+{% block title %}
+    공간정책 - 마음체크
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_detail.css' %}">
+{% endblock %}
+
+{% block body %}
+
+      <div id ="container">
+        <div id = "title" style="float: left" >
+            <div id = "title-left">
+                <h3>즐겨 찾는 역</h3>
+            </div>
+          <div id = "title-close">
+              <a href="{% url "dashboard" %}">×</a>
+          </div>
+
+        </div>
+
+        <div id = "panel">
+            <div id = "list">
+
+
+                <div id = "item">
+
+
+                    <div class = "panel-object">
+                    <div class = "small_box_container">
+                        <span class = "station_title">신도림역</span>
+                        <span class = "line_title">2호선</span>
+                        <a class = "icon-delete"><img src="{%  static "img/trash.png" %}"></a>
+
+                    </div>
+
+
+                <div class="small_box_container">
+                    <div class = "small_box">
+                        <p class = "box-title">최단이격출입문</p>
+                        <p class = "box-body">4-2</p>
+                    </div>
+                       <div class = "small_box">
+                        <p class = "box-title">역별혼잡도</p>
+                        <p class="box-body">원활</p>
+                    </div>
+                </div>
+
+
+
+                </div>
+
+
+                </div>
+
+
+
+
+            <div id = "pagenation">
+            <ul>
+                    <li style="margin-left: -30px">
+                        {%if targets.has_previous%}
+                        <a href="?page={{targets.previous_page_number}}">
+                        {%endif%}
+                        이전
+                        {%if targets.has_previous%}
+                        </a>
+                        {%endif%}
+                    </li>
+
+                {%for i in targets.paginator.page_range%}
+
+                    {% if page == i %}
+                        <li id="present"><a href="?page={{i}}">{{i}}</a></li>
+                    {% else %}
+                        <li><a href="?page={{i}}">{{i}}</a></li>
+                    {% endif %}
+
+
+                {%endfor%}
+                <li>
+                    {%if targets.has_next%}
+                       <a href="?page={{targets.next_page_number}}">
+                    {%endif%}
+                    다음
+                    {%if targets.has_next%}
+                        </a>
+                    {%endif%}
+                </li>
+            </ul>
+            </div>
+
+
+            </div>
+
+        </div>
+      </div>
+
+
+
+
+
+{% endblock %}
