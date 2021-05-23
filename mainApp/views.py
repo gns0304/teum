@@ -115,11 +115,13 @@ def search_complexity(request):
             now_min = now.tm_min # 현재 min
 
             all_times = Time.objects.filter(complex_id = find_complexity.first()) #해당 역의 모든 시간대 복잡도
-            # for a in all_times:
-            #     print(a.time)
-            #     if now_hour == a.time[:2]:
-            #         print("h...")
-            
+            count = 0
+            for a in all_times:
+                print(a.time)
+                if str(now_hour) == str(a.time)[:2]:
+                    print("d")
+                    #if str(now_min) == str(a.time)        
+                        
             find_time = str(all_times.first().time)
             find_time = find_time[:2]
             print(find_time)
