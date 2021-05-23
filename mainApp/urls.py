@@ -25,9 +25,9 @@ urlpatterns = [
 
     # 결과 화면 (렌더 논의에 따라 사용되지 않을 수 있음)
     #
-    path('result/shortest/<int:station_id>', views.detail_shortest, name="detail_shortest"),
+    path('result/shortest/<int:door_id>', views.detail_shortest, name="detail_shortest"),
     path('result/door/<int:door_id>', views.detail_door, name="detail_door"),
-    path('result/complexity/<int:station_id>', views.detail_complexity, name="detail_complexity"),
+    path('result/complexity/<int:time_id>', views.detail_complexity, name="detail_complexity"),
 
 
 ]

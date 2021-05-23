@@ -40,6 +40,16 @@ def index(request):
 
 
 def dashboard(request):
+    user = request.user
+    favorite_station = FavoriteStation.objects.filter(user = request.user)
+    favorite_station = favorite_station.first()
+    # #..? 임시
+    # context = {
+    #         'username': user.username,
+    #         'favorite_station': favorite_station.station.name,
+    #         'line' : favorite_station.station.line,
+            
+    #     }
     return render(request, "dashboard/dashboard.html")
 
 
@@ -74,7 +84,13 @@ def search_shortest(request):
             way = request.POST['way']
             find_station = Station.objects.filter(line=line, name = station, platform = way)
             print(find_station)
-            return redirect('/result/shortest/'+str(find_station.first().id))
+            find_door = Door.objects.filter(station = find_station.first())
+            min_door = find_door.first()
+            for f in find_door:
+                if f.distance < min_door.distance:
+                    min_door = f #최단 이격거리 문
+    
+            return redirect('/result/shortest/'+str(min_door.id))
     return render(request, "search/shortestDistance.html")
 
 
@@ -122,7 +138,9 @@ def search_complexity(request):
     return render(request, "search/complexity.html")
 
 
-def detail_shortest(request,station_id):
+def detail_shortest(request,door_id):
+
+    
     return render(request, "results/shortestDistance.html")
 
 
@@ -130,7 +148,7 @@ def detail_door(request,door_id):
     return render(request, "results/doorDistance.html")
 
 
-def detail_complexity(request,station_id):
+def detail_complexity(request,time_id):
     return render(request, "results/complexity.html")
 
 
