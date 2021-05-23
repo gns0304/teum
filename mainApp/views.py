@@ -60,7 +60,7 @@ def favorite_add(request, station_id):
 
 
 def favorite_remove(request, station_id):
-    station = get_object_or_404(Station,pk = station_id)
+    station = get_object_or_404(Station, pk=station_id)
     remove_station = FavoriteStation.objects.filter(user = request.user, station = station)
     remove_station.first().delete()
     return render(request,'dashboard/dashboard.html')
@@ -73,6 +73,7 @@ def search_shortest(request):
             station = request.POST['station']
             way = request.POST['way']
             find_station = Station.objects.filter(line=line, name = station, platform = way)
+            print(find_station)
             return redirect('/result/shortest/'+str(find_station.first().id))
     return render(request, "search/shortestDistance.html")
 
