@@ -40,7 +40,6 @@ def distance_save():
             door.car_number = int(data[3])
             door.door_number = int(data[4])
             door.distance = float(data[5])
-            print(station, data)
             door.save()
 
 def save_complexity():
@@ -52,7 +51,7 @@ def save_complexity():
             station = Station.objects.filter(line=data[1][0], name__contains=data[2], platform=data[3]).first()
 
             if station is not None:
-                print(station, data)
+
                 complexity = Complexity()
                 complexity.station = station
                 complexity.day = int(data[0])
@@ -63,17 +62,22 @@ def save_complexity():
                 time_start = "05:30"
                 datetime_object = datetime.datetime.strptime(time_start, "%H:%M")
 
-                for i in range(39):
-                    for j in range(4, 43):
-                        time = Time()
-                        time.complex_id = complexity
-                        time.time = datetime_object
-                        if (data[i] != " " or ""):
-                            time.complexity = data[i]
-                        else:
-                            time.complexity = 0.0
+
+                for j in range(4, 43):
+
+                    time = Time()
+                    time.complex_id = complexity
+                    time.time = datetime_object
+
+                    if (data[j] != " " or ""):
+                        time.complexity = data[j]
+                        time.save()
+                    else:
+                        time.complexity = 0.0
+                        time.save()
+
                     datetime_object = datetime_object + datetime.timedelta(minutes=30)
-                time.save()
+
 
 
 def test():
@@ -105,6 +109,6 @@ def test():
         print(i)
 
 
-# save_station()
-# distance_save()
+save_station()
+distance_save()
 save_complexity()

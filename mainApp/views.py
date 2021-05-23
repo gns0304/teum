@@ -152,4 +152,11 @@ def detail_complexity(request,time_id):
     return render(request, "results/complexity.html")
 
 
+def test_complexity(request):
+    return render(request, "results/complexity.html")
 
+def test_shortest(request):
+    return render(request, "results/shortest.html")
+
+def test_door(request):
+    return render(request, "results/door.html")

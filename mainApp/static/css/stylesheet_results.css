@@ -214,18 +214,18 @@ font-size : 10pt;
 
 }
 
-.platform_title, car_door_title{
+.platform_title, .car_door_title{
     font-size: 14pt;
     font-weight: bold;
 
 }
 
-.flowInfo_title, distanceInfo_title,centi_title, chul_title{
+.flowInfo_title, .distanceInfo_title,.centi_title, .chul_title{
     font-size: 14pt;
 }
 
 
-.distance_title, big_car_door_title{
+.distance_title, .big_car_door_title{
     font-size: 24pt;
     font-weight: bold;
 

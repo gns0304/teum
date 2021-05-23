@@ -29,5 +29,13 @@ urlpatterns = [
     path('result/door/<int:door_id>', views.detail_door, name="detail_door"),
     path('result/complexity/<int:time_id>', views.detail_complexity, name="detail_complexity"),
 
+    # 테스트용
+
+    path('test/shortest', views.test_shortest, name="test_shortest"),
+    path('test/door', views.test_door, name="test_door"),
+    path('test/complexity', views.test_complexity, name="test_complexity"),
+
+
+
 
 ]
