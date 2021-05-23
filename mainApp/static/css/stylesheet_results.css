@@ -1,0 +1,266 @@
+#title {
+    position: absolute;
+    bottom: 75%;
+    width: 80%;
+    height: 100px;
+    padding: 10% 10% 0 10%;
+    font-family: 'Noto Sans KR', sans-serif;
+
+  }
+
+#title-left{
+    float: left;
+}
+
+#title-close{
+    float: right;
+    margin-top:10px;
+    font-size: 20pt;
+    display: block;
+    text-decoration: none;
+}
+
+
+#title h2{
+    color : white;
+    line-height: 10pt;
+    font-size: 22pt;
+}
+
+ #title h3{
+    color : white;
+    line-height: 10pt;
+    font-size: 16pt;
+}
+
+ #title h4{
+    color : white;
+    font-size: 12pt;
+}
+
+ #title a{
+     font-weight: bold;
+ }
+
+#title a:link, a:visited{
+    color : white;
+
+}
+
+#panel{
+    padding-top : 10%;
+    position: absolute;
+    top: 25%;
+}
+
+#list{
+    width: 80%;
+    padding: 0 10% 0 10%;
+    float: left;
+}
+
+#list h1 {
+    font-size : 16pt;
+    width: 90%;
+    float: left;
+    display: block;
+
+}
+
+#list h2 {
+    font-size : 12pt;
+    font-weight: 400;
+    display: block;
+}
+
+#detail {
+    float:left;
+    margin-top: -10px;
+}
+
+#panel ul {
+    list-style: none;
+    font-size : 13pt;
+    margin : 0 auto;
+    width: fit-content;
+}
+
+#panel li {
+    float: left;
+    margin-left : 10px;
+
+}
+
+
+
+#panel a {
+    color : black;
+    text-decoration: none;
+}
+
+
+.panel-title {
+width : 100%;
+height: 40px;
+font-size : 10pt;
+}
+
+.panel-title-text{
+    color : #1A293E;
+    font-size: 0.7em;
+    margin-top : -6px;
+    float : left;
+}
+
+.panel-object{
+    float : left;
+    width:100%;
+    margin-top:20px;
+}
+
+#see-all-btn {
+    float : right;
+}
+
+
+.recent{
+    margin : 5% 10% 5% 10%;
+    height: fit-content;
+    position:relative;
+    float:left;
+    width : 80%;
+}
+#pagenation{
+    margin: 0 auto;
+    width : 100%;
+    height: fit-content;
+    display: block;
+    float: left;
+}
+
+
+
+.panel-object h2 {
+    font-weight:500;
+    margin-top:10px;
+    margin-bottom : -10px;
+    font-size:1.3em
+}
+
+.panel-object p {
+    font-weight:400;
+    line-height:160%;
+}
+
+#item{
+    margin-bottom: 20px;
+    float: left;
+}
+
+#congestion-btn{
+    margin-top: 20px;
+}
+
+.textbox {
+    border:0px;
+    border-bottom: #1A293E 2px solid;
+    width : 100%;
+    height: 50px;
+    margin-bottom: 40px;
+    font-size: 14pt;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+}
+
+
+.label {
+    color : #1A293E;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+
+@keyframes slideInFromLeft {
+ from {
+     top: 100%;
+ }
+    to {
+        top: 25%;
+    }
+}
+
+.l_btn{
+
+    width: 100%;
+    height: 50px;
+    padding-top: 0px;
+
+
+}
+
+
+.small_box_container{
+
+
+   display: inline-block;
+    width: 100%;
+
+}
+
+.station_title{
+
+    font-size: 14pt;
+    font-weight: bold;
+
+}
+
+.platform_title, car_door_title{
+    font-size: 14pt;
+    font-weight: bold;
+
+}
+
+.flowInfo_title, distanceInfo_title,centi_title, chul_title{
+    font-size: 14pt;
+}
+
+
+.distance_title, big_car_door_title{
+    font-size: 24pt;
+    font-weight: bold;
+
+}
+
+.big_title{
+    font-size: 22pt;
+    font-weight: bold;
+
+}
+
+.small_title{
+    font-size: 14pt;
+
+
+}
+
+.small_box{
+
+    display: inline-block;
+    float: left;
+    width: 45%;
+
+}
+
+.box-title{
+
+    color : #1A293E;
+    font-size: 12pt;
+    font-weight: bold;
+
+}
+
+.box-body {
+    margin-top: 5px;
+        font-size: 22pt;
+    font-weight: bold;
+}
