@@ -16,6 +16,7 @@ class Station(models.Model):
     line = models.CharField(max_length=6, null=False, blank=False, verbose_name="호선")
     name = models.CharField(max_length=10, null=False, blank=False, verbose_name="역명")
     foothold = models.BooleanField(default=False, null=False, blank=False, verbose_name="발판 유무")
+    platform = models.PositiveSmallIntegerField(null=False, blank=False, choices=PLATFORM, verbose_name="승강장번호")
 
     def __str__(self):
         return self.name
@@ -28,7 +29,6 @@ class Station(models.Model):
 class Door(models.Model):
 
     station = models.ForeignKey(Station, on_delete=models.CASCADE, verbose_name="역 정보")
-    platform = models.PositiveSmallIntegerField(null=False, blank=False, choices=PLATFORM, verbose_name="승강장번호")
     car_number = models.PositiveSmallIntegerField(null=False, blank=False, verbose_name="차량순서")
     door_number = models.PositiveSmallIntegerField(null=False, blank=False, verbose_name="차량출입문번호")
     distance = models.DecimalField(max_digits=3, decimal_places=1, verbose_name="안전거리")
@@ -47,7 +47,6 @@ class Complexity(models.Model):
     )
 
     station = models.ForeignKey(Station, on_delete=models.CASCADE, verbose_name="역 정보")
-    platform = models.PositiveSmallIntegerField(null=False, blank=False, choices=PLATFORM, verbose_name="승강장번호")
     day = models.PositiveSmallIntegerField(null=False, blank=False, choices=DAY, verbose_name="요일")
 
     def __str__(self):
