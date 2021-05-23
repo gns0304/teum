@@ -50,7 +50,7 @@ class Complexity(models.Model):
     day = models.PositiveSmallIntegerField(null=False, blank=False, choices=DAY, verbose_name="요일")
 
     def __str__(self):
-        return "{}_{}_{}".format(self.station.name, self.get_platform_display(), self.get_day_display())
+        return "{}_{}".format(self.station.name, self.get_day_display())
 
     class Meta:
         verbose_name_plural = "혼잡도 정보 관리"

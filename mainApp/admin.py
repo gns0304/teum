@@ -9,6 +9,7 @@ admin.site.index_title = '관리자 페이지'
 class StationAdmin(admin.ModelAdmin):
     list_display = ('line', 'name', 'foothold', 'platform')
     list_display_links = ('name',)
+    list_filter = ('line',)
 
 
 admin.site.register(Station, StationAdmin)
