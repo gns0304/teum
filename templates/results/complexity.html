@@ -1,1 +1,67 @@
-jjghajg
+
+{% extends 'base.html' %}
+
+{%  block template %}
+    {% load static %}
+{% endblock %}
+
+{% block title %}
+    역별혼잡도 조회결과 - 틈
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_results.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
+{% endblock %}
+
+{% block body %}
+
+    <div id ="container">
+
+        <div id = "title" style="float: left" >
+            <div id = "title-left">
+                <h3>역별혼잡도 조회</h3>
+            </div>
+          <div id = "title-close">
+              <a href="{% url "menu" %}">×</a>
+          </div>
+
+
+        </div>
+
+        <div id="panel">
+            <div id = "list">
+
+                   <form id="createTarget" action="" method="post">
+
+                    {% csrf_token %}
+                        <div id="see-all-btn">
+                            <a href="{% url "favorite_add" %}" class="blue">즐겨 찾는 역 추가</a>
+                        </div>
+
+                        <div class = "panel-object">
+                            <div class = "small_box_container">
+                            <p class = "station_title">을지로입구역</p>
+                            <p class = "platform_title">내선순환</p>
+                            <p class = "car_door_title">4-2 출입문</p>
+                            </div>
+
+                            <div class = "small_box_container">
+                            <span class = "distance_title">10</span>
+                            <span class = "centi_title">센티미터</span>
+                            </div>
+
+                            <div class = "small_box_container">
+                            <p class = "flow_title">현재 원활 시간대입니다.</p>
+                            </div>
+
+                            <input type="submit" class="l_btn btn_blue" id="submit" value="최단이격출입문 조회">
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
