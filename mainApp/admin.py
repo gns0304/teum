@@ -7,7 +7,7 @@ admin.site.index_title = '관리자 페이지'
 
 
 class StationAdmin(admin.ModelAdmin):
-    list_display = ('line', 'name', 'foothold')
+    list_display = ('line', 'name', 'foothold', 'platform')
     list_display_links = ('name',)
 
 
@@ -15,7 +15,7 @@ admin.site.register(Station, StationAdmin)
 
 
 class DoorAdmin(admin.ModelAdmin):
-    list_display = ('station', 'platform', 'car_number', 'door_number', 'distance')
+    list_display = ('station', 'car_number', 'door_number', 'distance')
     list_display_links = ('station',)
     list_filter = ('station__name',)
 
@@ -24,7 +24,7 @@ admin.site.register(Door, DoorAdmin)
 
 
 class ComplexityAdmin(admin.ModelAdmin):
-    list_display = ('station', 'platform', 'day')
+    list_display = ('station', 'day')
     list_display_links = ('station',)
     list_filter = ('station__name',)
 
