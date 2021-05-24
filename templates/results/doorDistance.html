@@ -21,7 +21,7 @@
 
         <div id = "title" style="float: left" >
             <div id = "title-left">
-                <h3>승차위치이격도 조회</h3>
+                <h3>승차위치이격도 조회결과</h3>
             </div>
           <div id = "title-close">
               <a href="{% url "menu" %}">×</a>
@@ -33,32 +33,31 @@
         <div id="panel">
             <div id = "list">
 
-                   <form id="createTarget" action="" method="post">
-
-                    {% csrf_token %}
-                        <div id="see-all-btn">
-                            <a href="" class="blue">즐겨 찾는 역 추가</a>
+                       <div class = "small_box_container">
+                            <a href="" id="fav_btn" >즐겨 찾는 역 추가</a>
                         </div>
 
-                        <div class = "panel-object">
-                            <div class = "small_box_container">
-                            <p class = "station_title">을지로입구역</p>
-                            <p class = "platform_title">내선순환</p>
-                            <p class = "car_door_title">4-2 출입문</p>
-                            </div>
+                        <p class = "panel-object">
+                            <p class = "small_box_container">
+                                <div class = "station_title">을지로입구역</div>
+                                <div class = "platform_title">(내선순환)</div>
+                                <div class = "car_door_title">4-2</div>
+                            </p>
 
-                            <div class = "small_box_container">
+                            <p class = "small_box_container">
                             <span class = "distance_title">10</span>
                             <span class = "centi_title">센티미터</span>
-                            </div>
+                            </p>
 
-                            <div class = "small_box_container">
-                            <p class = "flowInfo_title">현재 원활 시간대입니다.</p>
-                            </div>
+                            <p class = "small_box_container">
+                            <div class = "flowInfo_title">현재 원활 시간대입니다.</div>
+                            </p>
 
                             <input type="submit" class="l_btn btn_blue" id="submit" value="최단이격출입문 조회">
 
-                </form>
+                        </p>
+
+
             </div>
         </div>
     </div>

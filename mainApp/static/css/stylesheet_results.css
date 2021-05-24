@@ -57,6 +57,8 @@
     width: 80%;
     padding: 0 10% 0 10%;
     float: left;
+    text-align: center;
+
 }
 
 #list h1 {
@@ -92,18 +94,13 @@
 }
 
 
-
-#panel a {
-    color : black;
-    text-decoration: none;
-}
-
-
 .panel-title {
 width : 100%;
 height: 40px;
-font-size : 10pt;
+font-size : 13pt;
+
 }
+
 
 .panel-title-text{
     color : #1A293E;
@@ -118,9 +115,12 @@ font-size : 10pt;
     margin-top:20px;
 }
 
+
+
 #see-all-btn {
-    float : right;
-}
+    float: right;
+
+ }
 
 
 .recent{
@@ -130,6 +130,14 @@ font-size : 10pt;
     float:left;
     width : 80%;
 }
+
+.l_btn{
+
+
+
+}
+
+
 #pagenation{
     margin: 0 auto;
     width : 100%;
@@ -137,6 +145,7 @@ font-size : 10pt;
     display: block;
     float: left;
 }
+
 
 
 
@@ -189,59 +198,49 @@ font-size : 10pt;
     }
 }
 
-.l_btn{
 
-    width: 100%;
-    height: 50px;
-    padding-top: 0px;
-
-
-}
 
 
 .small_box_container{
-
 
    display: inline-block;
     width: 100%;
 
 }
 
-.station_title{
-
-    font-size: 14pt;
+#fav_btn {
+    color: black;
     font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+    color: #1A293E;
 
 }
 
-.platform_title, .car_door_title{
-    font-size: 14pt;
+.station_title, .platform_title, .car_door_title{
+    font-size: 20pt;
     font-weight: bold;
-
+    text-align:center;
+    color: #1A293E;
 }
+
+
 
 .flowInfo_title, .distanceInfo_title,.centi_title, .chul_title{
     font-size: 14pt;
+    text-align:center;
+    color: #1A293E;
 }
 
 
 .distance_title, .big_car_door_title{
-    font-size: 24pt;
+    font-size: 40pt;
     font-weight: bold;
+    text-align:center;
+    color: #1A293E;
 
 }
 
-.big_title{
-    font-size: 22pt;
-    font-weight: bold;
-
-}
-
-.small_title{
-    font-size: 14pt;
-
-
-}
 
 .small_box{
 
@@ -264,3 +263,4 @@ font-size : 10pt;
         font-size: 22pt;
     font-weight: bold;
 }
+

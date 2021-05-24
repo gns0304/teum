@@ -21,45 +21,41 @@
 
         <div id = "title" style="float: left" >
             <div id = "title-left">
-                <h3>역별혼잡도 조회</h3>
+                <h3>최단이격출입문 조회결과</h3>
             </div>
           <div id = "title-close">
               <a href="{% url "menu" %}">×</a>
           </div>
-
 
         </div>
 
         <div id="panel">
             <div id = "list">
 
-                   <form id="createTarget" action="" method="post">
-
-                    {% csrf_token %}
-                        <div id="see-all-btn">
-                            <a href="" class="blue">즐겨 찾는 역 추가</a>
+                       <div class = "small_box_container">
+                            <a href="" id="fav_btn" >즐겨 찾는 역 추가</a>
                         </div>
 
-                        <div class = "panel-object">
-                            <div class = "small_box_container">
-                            <p class = "station_title">을지로입구역</p>
-                            <p class = "platform_title">내선순환</p>
-                            </div>
+                        <p class = "panel-object">
+                            <p class = "small_box_container">
+                            <div class = "station_title">을지로입구역</div>
+                            <div class = "platform_title">(내선순환)</div>
+                            </p>
 
-                            <div class = "small_box_container">
-                            <span class = "big_car_door_title">4-2</span>
-                            <span class = "chul_title">출입문</span>
-                            </div>
+                            <p class = "small_box_container">
+                            <div class = "big_car_door_title">4-2</div>
+                            </p>
 
-                            <div class = "small_box_container">
-                            <p class = "distanceInfo_title">이격거리 10센티미터 이하</p>
-                            </div>
+                            <p class = "small_box_container">
+                            <div class = "distanceInfo_title">이격거리 10센티미터 이하</div>
+                            </p>
 
-                            <input type="submit" class="l_btn btn_blue" id="submit" value="최단이격출입문 조회">
-
-                </form>
+                            <input type="submit" class="l_btn btn_blue" id="submit" value="역별혼잡도 조회">
+                        </p>
             </div>
         </div>
+
     </div>
+
 
 {% endblock %}
