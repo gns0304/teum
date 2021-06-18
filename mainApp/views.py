@@ -132,10 +132,9 @@ def search_complexity(request):
             station = request.POST['station']
             way = request.POST['way']
             find_station = Station.objects.filter(line=line, name = station, platform = way)
-            
             date = datetime.date.today()
             dw = date.weekday()
-            day = 1
+            day = 1 # 평일/토/일
             if dw ==5:
                 day = 2
             elif dw == 6:
@@ -151,7 +150,13 @@ def search_complexity(request):
                 if str(now_hour) == str(a.time)[:2]:
                     if str(now_min) > str(a.time)[3:5]:   
                         find_time = a
-            return redirect('/result/complexity/'+str(find_time.id))
+            context = {
+                #임시이름
+                'station_title' : find_station[0],
+                'platform_title' : find_station[0].platform,
+                'flowInfo_title' : find_complexity,
+            }
+            return render(request,'results/complexity/',context)
     return render(request, "search/complexity.html")
 
 
