@@ -34,26 +34,26 @@
     <div id="panel">
         <div id = "list">
             <p class = "small_box_container">
-                <a href="#" id="fav_btn" >즐겨 찾는 역 추가</a>
+                <a href="{% url "favorite_add" station_title.id %}" id="fav_btn" >즐겨 찾는 역 추가</a>
             </p>
 
             <p class = "panel-object">
 
             <p class = "small_box_container">
-            <div class = "station_title">을지로입구역</div>
-            <div class = "platform_title">내선순환</div>
+            <div class = "station_title">{{ station_title.name }}</div>
+            <div class = "platform_title">{{ platform_title }}</div>
 
             </p>
 
              <p class = "small_box_container">
-                <div class = "complexity_title">혼잡</div>
+                <div class = "complexity_title">{{ flowInfo_title }}</div>
             </p>
 
             <p class = "small_box_container">
             <div class = "caution_title">역 이용시 주의하십시오.</div>
             </p>
 
-<input type="button" class="l_btn btn_blue" id="submit" value="최단이격출입문 조회">
+<input type="button" onclick="location.href='{% url "search_shortest" %}'" style="cursor: pointer" class="l_btn btn_blue" id="submit" value="최단이격출입문 조회">
 
             </p>
         </div>

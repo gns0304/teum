@@ -40,6 +40,6 @@ urlpatterns = [
 
     path('get/station', views.get_station_data, name="get_station_data"),
     path('get/platform', views.get_platform_data, name="get_platform_data"),
-
+    path('get/door', views.get_door_data, name="get_door_data"),
 
 ]

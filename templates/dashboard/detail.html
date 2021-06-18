@@ -30,14 +30,17 @@
             <div id = "list">
 
 
-                <div id = "item">
+
+{% for station in favorite_station %}
+
+               <div id = "item">
 
 
                     <div class = "panel-object">
                     <div class = "small_box_container">
-                        <span class = "station_title">신도림역</span>
-                        <span class = "line_title">2호선</span>
-                        <a class = "icon-delete"><img src="{%  static "img/trash.png" %}"></a>
+                        <span class = "station_title">{{ station.station_name }}</span>
+                        <span class = "line_title">{{ station.station_line }}</span>
+                        <a class = "icon-delete" href="{% url "favorite_remove" station.station_id %}"><img src="{%  static "img/trash.png" %}"></a>
 
                     </div>
 
@@ -45,11 +48,11 @@
                 <div class="small_box_container">
                     <div class = "small_box">
                         <p class = "box-title">최단이격출입문</p>
-                        <p class = "box-body">4-2</p>
+                        <p class = "box-body">{{ station.shortest_door }}</p>
                     </div>
                        <div class = "small_box">
                         <p class = "box-title">역별혼잡도</p>
-                        <p class="box-body">원활</p>
+                        <p class="box-body">{{ station.find_complexity }}</p>
                     </div>
                 </div>
 
@@ -61,41 +64,9 @@
                 </div>
 
 
+                {% endfor %}
 
 
-            <div id = "pagenation">
-            <ul>
-                    <li style="margin-left: -30px">
-                        {%if targets.has_previous%}
-                        <a href="?page={{targets.previous_page_number}}">
-                        {%endif%}
-                        이전
-                        {%if targets.has_previous%}
-                        </a>
-                        {%endif%}
-                    </li>
-
-                {%for i in targets.paginator.page_range%}
-
-                    {% if page == i %}
-                        <li id="present"><a href="?page={{i}}">{{i}}</a></li>
-                    {% else %}
-                        <li><a href="?page={{i}}">{{i}}</a></li>
-                    {% endif %}
-
-
-                {%endfor%}
-                <li>
-                    {%if targets.has_next%}
-                       <a href="?page={{targets.next_page_number}}">
-                    {%endif%}
-                    다음
-                    {%if targets.has_next%}
-                        </a>
-                    {%endif%}
-                </li>
-            </ul>
-            </div>
 
 
             </div>

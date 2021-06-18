@@ -22,7 +22,7 @@
             <img src="{% static 'img/logo_crop.png' %}" width="50px">
             </div>
 
-            <h2>한지훈님</h2>
+            <h2>{{ username }}님</h2>
             <h4><a href="{% url "logout" %}">로그아웃</a></h4>
 
 
@@ -42,10 +42,13 @@
                         <a href="{% url "detail" %}" class="blue">더보기</a>
                     </div>
                 </div>
-                <div class = "panel-object">
+
+                {% if station_line != "" %}
+
+                      <div class = "panel-object">
                     <div class = "small_box_container">
-                        <span class = "station_title">신도림역</span>
-                        <span class = "line_title">2호선</span>
+                        <span class = "station_title">{{ station_name }}</span>
+                        <span class = "line_title">{{ station_line }}</span>
 
                     </div>
 
@@ -53,11 +56,11 @@
                 <div class="small_box_container">
                     <div class = "small_box">
                         <p class = "box-title">최단이격출입문</p>
-                        <p class = "box-body">4-2</p>
+                        <p class = "box-body">{{ shortest_door }}</p>
                     </div>
                        <div class = "small_box">
                         <p class = "box-title">역별혼잡도</p>
-                        <p class="box-body">원활</p>
+                        <p class="box-body">{{ complexity }}</p>
                     </div>
                 </div>
 
@@ -65,7 +68,25 @@
 
 
                 </div>
+
+
+
             </div>
+
+
+                    {% else %}
+
+                    <div class = "panel-object">
+
+            <h2 style="text-align: center; font-weight: bold; color: #1A293E; padding-bottom: 30px;">
+                즐겨찾는 역을 추가해주세요
+            </h2>
+                </div>
+
+                {% endif %}
+
+
+
 
 
             <div class = "l_btn btn_blue">
