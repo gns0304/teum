@@ -227,7 +227,7 @@ font-size : 13pt;
 }
 
 
-.flowInfo_title, .distanceInfo_title,.centi_title, .chul_title{
+.flowInfo_title, .distanceInfo_title,.centi_title, .chul_title, .caution_title{
     font-size: 14pt;
     text-align:center;
     color: #1A293E;
@@ -244,6 +244,13 @@ font-size : 13pt;
 
 .big_car_door_title{
     font-size: 60pt;
+    font-weight: bold;
+    text-align: center;
+    color: #1A293E;
+}
+
+.complexity_title{
+    font-size: 55pt;
     font-weight: bold;
     text-align: center;
     color: #1A293E;
