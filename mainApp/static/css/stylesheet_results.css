@@ -198,14 +198,10 @@ font-size : 13pt;
     }
 }
 
-
-
-
 .small_box_container{
-
    display: inline-block;
-    width: 100%;
-
+   width: 100%;
+   font-weight: bold;
 }
 
 #fav_btn {
@@ -225,22 +221,27 @@ font-size : 13pt;
 }
 
 
-
 .flowInfo_title, .distanceInfo_title,.centi_title, .chul_title{
     font-size: 14pt;
     text-align:center;
     color: #1A293E;
+    font-weight: bold;
 }
 
 
-.distance_title, .big_car_door_title{
+.distance_title{
     font-size: 40pt;
     font-weight: bold;
     text-align:center;
     color: #1A293E;
-
 }
 
+.big_car_door_title{
+    font-size: 60pt;
+    font-weight: bold;
+    text-align: center;
+    color: #1A293E;
+}
 
 .small_box{
 
@@ -263,4 +264,6 @@ font-size : 13pt;
         font-size: 22pt;
     font-weight: bold;
 }
+
+
 
