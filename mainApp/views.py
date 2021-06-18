@@ -41,6 +41,7 @@ def index(request):
 
 def dashboard(request):
     user = request.user
+    
     favorite_station = FavoriteStation.objects.filter(user = request.user)
     favorite_station = favorite_station.first()
     # #..? 임시
@@ -82,15 +83,22 @@ def search_shortest(request):
             line = request.POST['line']
             station = request.POST['station']
             way = request.POST['way']
-            find_station = Station.objects.filter(line=line, name = station, platform = way)
+            find_station = Station.objects.filter(line=line, name = station, platform = way) #찾으려는 역
             print(find_station)
             find_door = Door.objects.filter(station = find_station.first())
+            print(find_door) #해당역의 모든 문
             min_door = find_door.first()
             for f in find_door:
                 if f.distance < min_door.distance:
                     min_door = f #최단 이격거리 문
-    
-            return redirect('/result/shortest/'+str(min_door.id))
+            context = {
+                #임시이름
+                'station_title' : find_station[0],
+                'platform_title' : find_station[0].platform,
+                'big_car_door_title' : str(min_door.car_number)+'-'+str(min_door.door_number),
+                'distanceInfo_titles' : min_door.distance,
+            }
+            return render(request,"results/shortestDistance.html",context)
     return render(request, "search/shortestDistance.html")
 
 
@@ -104,7 +112,16 @@ def search_door(request):
             door_number = request.POST['door_number']
             find_station = Station.objects.filter(line=line, name = station, platform = way)
             find_door = Door.objects.filter(station = find_station.first(), car_number = car_number, door_number = door_number)
-            return redirect('/result/door/'+str(find_door.first().id))
+            find_complexity = "임시"
+            context = {
+                #임시이름
+                'station_title' : find_station[0],
+                'platform_title' : find_station[0].platform,
+                'car_door_title' : str(find_door[0].car_number)+'-'+str(find_door[0].door_number)+" 출입문",
+                'distance_title' : find_door[0].distance,
+                'flowInfo_title' : find_complexity,
+            }
+            return render(request,"results/doorDistance.html",context)
     return render(request, "search/doorDistance.html")
 
 
@@ -115,17 +132,16 @@ def search_complexity(request):
             station = request.POST['station']
             way = request.POST['way']
             find_station = Station.objects.filter(line=line, name = station, platform = way)
-            
             date = datetime.date.today()
             dw = date.weekday()
-            day = 1
+            day = 1 # 평일/토/일
             if dw ==5:
                 day = 2
             elif dw == 6:
                 day = 3
             find_complexity = Complexity.objects.filter(station = find_station.first(), day = day)
             print(find_complexity)
-            #전 최선을 다했습니다.
+            
             now = time.localtime() #현재시간
             now_hour = now.tm_hour # 현재 hour
             now_min = now.tm_min # 현재 min
@@ -134,7 +150,13 @@ def search_complexity(request):
                 if str(now_hour) == str(a.time)[:2]:
                     if str(now_min) > str(a.time)[3:5]:   
                         find_time = a
-            return redirect('/result/complexity/'+str(find_time.id))
+            context = {
+                #임시이름
+                'station_title' : find_station[0],
+                'platform_title' : find_station[0].platform,
+                'flowInfo_title' : find_complexity,
+            }
+            return render(request,'results/complexity/',context)
     return render(request, "search/complexity.html")
 
 
