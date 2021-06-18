@@ -36,6 +36,10 @@ urlpatterns = [
     path('test/complexity', views.test_complexity, name="test_complexity"),
 
 
+    #for ajax
+
+    path('get/station', views.get_station_data, name="get_station_data"),
+    path('get/platform', views.get_platform_data, name="get_platform_data"),
 
 
 ]

@@ -37,20 +37,27 @@
 
                     {% csrf_token %}
 
-
                         <label for = "line" class="label">호선 선택</label>
-                        <select name="line" id="line" class="textbox" required>
+                        <select name="line" id="line" class="textbox" onchange="javascript:checkLineChanged();" required>
+                            <option value="0">호선 선택</option>
                             <option value="1">1호선</option>
+                            <option value="2">2호선</option>
+                            <option value="3">3호선</option>
+                            <option value="4">4호선</option>
+                            <option value="5">5호선</option>
+                            <option value="6">6호선</option>
+                            <option value="7">7호선</option>
+                            <option value="8">8호선</option>
                         </select>
 
-                       <label for = "station" class="label">역명 선택</label>
-                       <select name="station" id="station" class="textbox" required>
-                           <option value="동대문">동대문</option>
+                       <label for = "station" class="label" onchange="">역명 선택</label>
+                       <select name="station" id="station" class="textbox" onclick="javascript:checkData();" onchange="javascript:getPlatform()" required>
+                           <option value="0">역명 선택</option>
                        </select>
 
                        <label for = "way" class="label">상하행 선택</label>
                        <select name="way" id="way" class="textbox" required>
-                           <option value="1">상행</option>
+                           <option value="0">상하행 선택</option>
                        </select>
 
 
@@ -60,5 +67,112 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+    var isDataReady = False;
+
+    function checkLineChanged() {
+        var element = document.getElementById("line");
+        var line = element.options[element.selectedIndex].value;
+        getStation(line);
+    }
+
+    function getStation(line) {
+
+           $.ajax({
+               url: "{% url 'get_station_data' %}",
+               type: "GET",
+               dataType: "json",
+               data:{"line": line},
+               success:function(data){
+
+                   var select = document.getElementById("station");
+                   select.options.length = 0;
+                   document.getElementById("way").options.length = 0;
+
+                   var option = document.createElement("option");
+                   option.innerText = "역명 선택";
+                   option.value = "역명 선택";
+                   select.append(option);
+
+
+                   for (var i = 0; i < data.station.length; i++) {
+
+                       var option = document.createElement("option");
+                       option.innerText = data.station[i];
+                       option.value = data.station[i];
+                       select.append(option)
+
+                   }
+
+               }
+           });
+
+
+
+
+    }
+
+       function getPlatform() {
+
+        var element = document.getElementById("station");
+        var station = element.options[element.selectedIndex].value;
+        var line = document.getElementById("line").options[document.getElementById("line").selectedIndex].value;
+
+        $.ajax({
+               url: "{% url 'get_platform_data' %}",
+               type: "GET",
+               dataType: "json",
+               data:{"station": station},
+               success:function(data){
+
+                   var select = document.getElementById("way");
+                   select.options.length = 0;
+
+
+                   var option = document.createElement("option");
+                   option.innerText = "상하행 선택";
+                   option.value = 0;
+                   select.append(option);
+
+                   for (var i = 0; i < data.platforms.length; i++) {
+
+                   var option = document.createElement("option");
+
+                       if(line != 2 ) {
+
+                              if (data.platforms[i] == 1) {
+                           option.innerText = "상행";
+                       } else if (data.platforms[i] == 2){
+                           option.innerText = "하행";
+                       }
+
+                       }else if (line == 2){
+
+                              if (data.platforms[i] == 1) {
+                           option.innerText = "내선순환";
+                       } else if (data.platforms[i] == 2){
+                           option.innerText = "외선순환";
+                       }
+
+                       }
+
+
+
+                       option.value = data.platforms[i];
+                       select.append(option)
+
+
+                   }
+
+               }
+           });
+
+
+       }
+
+    </script>
+
 
 {% endblock %}

@@ -122,6 +122,7 @@ font-size : 13pt;
 
  }
 
+.btn_blue {margin: 20px auto 20px auto; padding: 10px;}
 
 .recent{
     margin : 5% 10% 5% 10%;
@@ -133,6 +134,9 @@ font-size : 13pt;
 
 .l_btn{
 
+    width: 90%;
+    height: 50px;
+   margin-left: 5%;
 
 
 }

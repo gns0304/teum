@@ -154,6 +154,9 @@ def search_shortest(request):
                 'big_car_door_title' : str(min_door.car_number)+'-'+str(min_door.door_number),
                 'distanceInfo_titles' : min_door.distance,
             }
+
+            print(context["big_car_door_title"])
+
             return render(request,"results/shortestDistance.html",context)
     return render(request, "search/shortestDistance.html")
 
@@ -198,7 +201,7 @@ def search_door(request):
                     find_complexity = "혼잡"
             except:
                 find_complexity="운행종료"
-            print(find_complexity)
+
 
             context = {
                 #임시이름
@@ -208,7 +211,11 @@ def search_door(request):
                 'distance_title' : find_door[0].distance,
                 'flowInfo_title' : find_complexity,
             }
+
+            print(context)
+
             return render(request,"results/doorDistance.html",context)
+
     return render(request, "search/doorDistance.html")
 
 
@@ -256,6 +263,9 @@ def search_complexity(request):
                 'platform_title' : find_station[0].platform,
                 'flowInfo_title' : find_complexity,
             }
+
+            print(context)
+
             return render(request,"results/complexity.html",context)
     return render(request, "search/complexity.html")
 
@@ -282,3 +292,46 @@ def test_shortest(request):
 
 def test_door(request):
     return render(request, "results/door.html")
+
+
+# for Ajax
+
+import json
+from django.http import HttpResponse
+
+
+def get_station_data(request):
+    line_number = request.GET["line"]
+
+    if line_number != 0:
+        stations = Station.objects.filter(line=line_number)
+        station_list = []
+
+        for station in stations:
+            station_list.append(station.name)
+
+        context = {"station": list(set(station_list))}
+
+    return HttpResponse(json.dumps(context), content_type="application/json")
+
+
+def get_platform_data(request):
+    station_name = request.GET["station"]
+
+    print(station_name)
+
+    if station_name != "역명 선택":
+        stations = Station.objects.filter(name=station_name)
+
+        platforms = []
+
+        for station in stations:
+            platforms.append(station.platform)
+
+        context = {"platforms": list(set(platforms))}
+
+        print(context)
+
+    return HttpResponse(json.dumps(context), content_type="application/json")
+
+
