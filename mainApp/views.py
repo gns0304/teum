@@ -43,52 +43,62 @@ def dashboard(request):
     user = request.user
     
     favorite_station = FavoriteStation.objects.filter(user = request.user)
+    try:
+        first_station = Station.objects.filter(name = favorite_station[0].station)
+        print(first_station[0].name)
+        #코드야 미안해
+        find_door = Door.objects.filter(station = first_station.first())
+        print(find_door) #해당역의 모든 문
+        min_door = find_door.first()
+        for f in find_door:
+            if f.distance < min_door.distance:
+                    min_door = f #최단 이격거리 문
+        print(min_door)
+        #코드야 미안해2
+        date = datetime.date.today()
+        dw = date.weekday()
+        day = 1 # 평일/토/일
+        if dw ==5:
+            day = 2
+        elif dw == 6:
+            day = 3
+        find_complexity = Complexity.objects.filter(station = first_station.first(), day = day)
+        now = time.localtime() #현재시간
+        now_hour = now.tm_hour # 현재 hour
+        now_min = now.tm_min # 현재 min
+        all_times = Time.objects.filter(complex_id = find_complexity.first()) #해당 역의 모든 시간대 복잡도
+        for a in all_times:
+            if str(now_hour) == str(a.time)[:2]:
+                if str(now_min) > str(a.time)[3:5]:   
+                    find_time = a
+                    
+        try:            
+                complexity = find_time.complexity
+                if complexity <= 80:
+                    find_complexity = "여유"
+                elif complexity <= 130:
+                    find_complexity = "보통"
+                elif complexity <= 150:
+                    find_complexity = "주의"
+                else:
+                    find_complexity = "혼잡"
+        except:
+                find_complexity="운행종료"
+        station_name = first_station[0].name,
+        station_line = str(first_station[0].name)+"호선"
+        shortest_door = str(min_door.car_number)+'-'+str(min_door.door_number)
+    except:
+        station_name="즐겨찾는 역을 추가해주세요"
+        station_line =""
+        shortest_door =""
+        find_complexity=""
     
-    first_station = Station.objects.filter(name = favorite_station[0].station)
-    print(first_station[0].name)
 
-    #코드야 미안해
-    find_door = Door.objects.filter(station = first_station.first())
-    print(find_door) #해당역의 모든 문
-    min_door = find_door.first()
-    for f in find_door:
-        if f.distance < min_door.distance:
-                min_door = f #최단 이격거리 문
-    print(min_door)
-
-    #코드야 미안해2
-    date = datetime.date.today()
-    dw = date.weekday()
-    day = 1 # 평일/토/일
-    if dw ==5:
-        day = 2
-    elif dw == 6:
-        day = 3
-    find_complexity = Complexity.objects.filter(station = first_station.first(), day = day)
-    now = time.localtime() #현재시간
-    now_hour = now.tm_hour # 현재 hour
-    now_min = now.tm_min # 현재 min
-    all_times = Time.objects.filter(complex_id = find_complexity.first()) #해당 역의 모든 시간대 복잡도
-    for a in all_times:
-        if str(now_hour) == str(a.time)[:2]:
-            if str(now_min) > str(a.time)[3:5]:   
-                find_time = a
-                
-    complexity = find_time.complexity
-    if complexity <= 80:
-        find_complexity = "여유"
-    elif complexity <= 130:
-        find_complexity = "보통"
-    elif complexity <= 150:
-        find_complexity = "주의"
-    else:
-        find_complexity = "혼잡"
-    print(find_complexity)
     context = {
             'username': user.username,
-            'station_name':first_station[0].name,
-            'station_line':str(first_station[0].name)+"호선",
-            'shortest_door' : str(min_door.car_number)+'-'+str(min_door.door_number),
+            'station_name':station_name,
+            'station_line':station_line,
+            'shortest_door' : shortest_door,
             'complexity' : find_complexity,
             
         }
@@ -176,16 +186,18 @@ def search_door(request):
                 if str(now_hour) == str(a.time)[:2]:
                     if str(now_min) > str(a.time)[3:5]:   
                         find_time = a
-                        
-            complexity = find_time.complexity
-            if complexity <= 80:
-                find_complexity = "여유"
-            elif complexity <= 130:
-                find_complexity = "보통"
-            elif complexity <= 150:
-                find_complexity = "주의"
-            else:
-                find_complexity = "혼잡"
+            try:            
+                complexity = find_time.complexity
+                if complexity <= 80:
+                    find_complexity = "여유"
+                elif complexity <= 130:
+                    find_complexity = "보통"
+                elif complexity <= 150:
+                    find_complexity = "주의"
+                else:
+                    find_complexity = "혼잡"
+            except:
+                find_complexity="운행종료"
             print(find_complexity)
 
             context = {
@@ -226,15 +238,18 @@ def search_complexity(request):
                     if str(now_min) > str(a.time)[3:5]:   
                         find_time = a
                         
-            complexity = find_time.complexity
-            if complexity <= 80:
-                find_complexity = "여유"
-            elif complexity <= 130:
-                find_complexity = "보통"
-            elif complexity <= 150:
-                find_complexity = "주의"
-            else:
-                find_complexity = "혼잡"
+            try:            
+                complexity = find_time.complexity
+                if complexity <= 80:
+                    find_complexity = "여유"
+                elif complexity <= 130:
+                    find_complexity = "보통"
+                elif complexity <= 150:
+                    find_complexity = "주의"
+                else:
+                    find_complexity = "혼잡"
+            except:
+                find_complexity="운행종료"
             context = {
                 #임시이름
                 'station_title' : find_station[0],
