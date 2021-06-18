@@ -112,7 +112,7 @@ font-size : 13pt;
 .panel-object{
     float : left;
     width:100%;
-    margin-top:20px;
+    margin-top: 0;
 }
 
 
@@ -202,6 +202,7 @@ font-size : 13pt;
    display: inline-block;
    width: 100%;
    font-weight: bold;
+   text-align: center;
 }
 
 #fav_btn {
@@ -210,6 +211,7 @@ font-size : 13pt;
     text-align: center;
     text-decoration: underline;
     color: #1A293E;
+    font-size: 14pt;
 
 }
 

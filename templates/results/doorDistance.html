@@ -1,65 +1,67 @@
 {% extends 'base.html' %}
 
 {%  block template %}
-    {% load static %}
+{% load static %}
 {% endblock %}
 
 {% block title %}
-    승차위치이격도 조회결과 - 틈
+승차위치이격도 조회결과 - 틈
 {% endblock %}
 
 {% block head %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_base.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_results.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_base.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet_results.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
 {% endblock %}
 
 {% block body %}
 
-    <div id ="container">
+<div id ="container">
 
-        <div id = "title" style="float: left" >
-            <div id = "title-left">
-                <h3>승차위치이격도 조회결과</h3>
-            </div>
-          <div id = "title-close">
-              <a href="{% url "menu" %}">×</a>
-          </div>
-
-
+    <div id = "title" style="float: left" >
+        <div id = "title-left">
+            <h3>승차위치이격도 조회결과</h3>
+        </div>
+        <div id = "title-close">
+            <a href="{% url "menu" %}">×</a>
         </div>
 
-        <div id="panel">
-            <div id = "list">
 
-                       <div class = "small_box_container">
-                            <a href="" id="fav_btn" >즐겨 찾는 역 추가</a>
-                        </div>
+    </div>
 
-                        <p class = "panel-object">
-                            <p class = "small_box_container">
-                                <div class = "station_title">을지로입구역</div>
-                                <div class = "platform_title">(내선순환)</div>
-                                <div class = "car_door_title">4-2</div>
-                            </p>
+    <div id="panel">
+        <div id = "list">
 
-                            <p class = "small_box_container">
-                            <span class = "distance_title">10</span>
-                            <span class = "centi_title">센티미터</span>
-                            </p>
+            <p class = "small_box_container">
+                <a href="#" id="fav_btn" >즐겨 찾는 역 추가</a>
+            </p>
 
-                            <p class = "small_box_container">
-                            <div class = "flowInfo_title">현재 원활 시간대입니다.</div>
-                            </p>
+            <p class = "panel-object">
+            <p class = "small_box_container">
+            <div class = "station_title">을지로입구역</div>
+            <div class = "platform_title">(내선순환)</div>
+            <div class = "car_door_title">4-2</div>
+            </p>
 
-                            <input type="submit" class="l_btn btn_blue" id="submit" value="최단이격출입문 조회">
+            <p class = "small_box_container">
+                <span class = "distance_title">10</span>
+                <span class = "centi_title">센티미터</span>
+            </p>
 
-                        </p>
+            <p class = "small_box_container">
+            <div class = "flowInfo_title">현재 원활 시간대입니다.</div>
+            </p>
+
+            <p class = "l_btn btn_blue">
+                <a class="btn_a" href="#"> 최단이격출입문 조회 </a>
+            </p>
+
+            </p>
 
 
-            </div>
         </div>
     </div>
+</div>
 
 {% endblock %}
