@@ -150,13 +150,23 @@ def search_complexity(request):
                 if str(now_hour) == str(a.time)[:2]:
                     if str(now_min) > str(a.time)[3:5]:   
                         find_time = a
+                        
+            complexity = find_time.complexity
+            if complexity <= 80:
+                find_complexity = "여유"
+            elif complexity <= 130:
+                find_complexity = "보통"
+            elif complexity <= 150:
+                find_complexity = "주의"
+            else:
+                find_complexity = "혼잡"
             context = {
                 #임시이름
                 'station_title' : find_station[0],
                 'platform_title' : find_station[0].platform,
                 'flowInfo_title' : find_complexity,
             }
-            return render(request,'results/complexity/',context)
+            return render(request,"results/complexity.html",context)
     return render(request, "search/complexity.html")
 
 
